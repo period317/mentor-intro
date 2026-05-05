@@ -12,7 +12,7 @@
     --text: #191F28;
     --sub: #6B7684;
     --muted: #8B95A1;
-    --line: #F2F4F6;
+    --line: #E5E8EB;
     --bg: #F9FAFB;
     --white: #FFFFFF;
   }
@@ -26,202 +26,200 @@
   }
 
   .wrap {
-    max-width: 680px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 48px 20px 80px;
+    padding: 64px 40px 100px;
   }
 
-  /* ── 메인 헤더 ── */
-  .main-header {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 40px 32px 36px;
-    margin-bottom: 12px;
+  /* ── 헤더 ── */
+  .header {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 0;
   }
   .brand {
-    font-size: 28px;
+    font-size: 56px;
     font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 6px;
-    letter-spacing: -0.5px;
+    color: var(--text);
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 10px;
   }
-  .brand-sub {
-    font-size: 13px;
+  .brand span { color: var(--blue); }
+  .brand-role {
+    font-size: 16px;
     font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 20px;
+    color: var(--blue);
+    margin-bottom: 18px;
   }
-  .main-desc {
-    font-size: 14px;
+  .brand-desc {
+    font-size: 15px;
     color: var(--sub);
-    line-height: 1.85;
+    line-height: 1.8;
+    max-width: 620px;
     word-break: keep-all;
   }
-  .main-desc p + p { margin-top: 10px; }
 
   /* ── 탭 네비게이션 ── */
   .tab-nav {
     display: flex;
-    gap: 6px;
-    margin-bottom: 16px;
-    padding: 0 2px;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
   }
   .tab-btn {
-    flex: 1;
-    background: var(--white);
+    background: none;
     border: none;
-    border-radius: 12px;
-    padding: 12px 8px;
-    font-size: 13px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    padding: 18px 28px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--muted);
     cursor: pointer;
-    transition: all 0.15s;
     font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s;
   }
+  .tab-btn:first-child { padding-left: 0; }
   .tab-btn.active {
-    background: var(--blue);
-    color: var(--white);
+    color: var(--text);
     font-weight: 700;
+    border-bottom-color: var(--text);
   }
+  .tab-btn:hover:not(.active) { color: var(--sub); }
 
   /* ── 탭 콘텐츠 ── */
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* ── Section ── */
-  .section { margin-bottom: 12px; }
-  .section-label {
-    font-size: 12px;
+  /* ── 콘텐츠 블록 ── */
+  .block {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 12px;
+  }
+  .block-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .block-subtitle {
+    font-size: 13px;
     font-weight: 700;
     color: var(--muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0 4px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
-  /* ── Card ── */
-  .card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 28px 32px;
-    margin-bottom: 4px;
+  /* ── 경력 ── */
+  .exp-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .card:last-child { margin-bottom: 0; }
-
-  /* ── Experience ── */
-  .exp-top {
+  .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child { padding-bottom: 0; border-bottom: none; }
+  .exp-head {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 3px;
   }
   .exp-company { font-size: 16px; font-weight: 700; }
-  .exp-period {
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-    padding-top: 3px;
-    flex-shrink: 0;
-  }
+  .exp-period { font-size: 12px; color: var(--muted); flex-shrink: 0; }
   .exp-role {
     font-size: 13px;
     color: var(--blue);
     font-weight: 500;
-    margin-bottom: 18px;
-  }
-  .work-group { margin-bottom: 16px; }
-  .work-group:last-child { margin-bottom: 0; }
-  .work-group-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .work-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .work-list li {
-    font-size: 13px;
-    color: var(--sub);
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.7;
-  }
-  .work-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: #D1D6DB;
-    font-size: 11px;
-    top: 3px;
+    margin-bottom: 14px;
   }
   .exp-simple {
     font-size: 13px;
     color: var(--sub);
     line-height: 1.7;
-    margin-top: 6px;
+  }
+  .work-group { margin-bottom: 12px; }
+  .work-group:last-child { margin-bottom: 0; }
+  .work-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .work-list { list-style: none; }
+  .work-list li {
+    font-size: 13px;
+    color: var(--sub);
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.65;
+  }
+  .work-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
   }
 
-  /* ── Award ── */
-  .award-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
+  /* ── 멘토링 경험 그리드 ── */
+  .mentor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
-  .award-row:first-child { padding-top: 0; }
-  .award-row:last-child { padding-bottom: 0; border-bottom: none; }
-  .award-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--blue);
-    flex-shrink: 0;
-    margin-top: 7px;
+  .mentor-item {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 18px 20px;
   }
-  .award-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
-  .award-org { font-size: 12px; color: var(--muted); }
+  .mentor-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .mentor-item-desc {
+    font-size: 12px;
+    color: var(--sub);
+    line-height: 1.6;
+  }
 
-  /* ── Education ── */
-  .edu-school { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  /* ── 학력 + 수상 2열 ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .edu-school { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
   .edu-info { font-size: 13px; color: var(--sub); }
 
-  /* ── Skills ── */
+  .award-item { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .award-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .award-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .award-org { font-size: 12px; color: var(--muted); }
+
+  /* ── 스킬 ── */
   .skill-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
   .skill-tag {
     background: var(--bg);
     border-radius: 100px;
-    padding: 7px 16px;
+    padding: 6px 14px;
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
   }
 
   /* ── 이력서 탭 ── */
-  .intro-sublabel {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-  .trait-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .trait-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .trait-list li {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--sub);
-    padding-left: 14px;
+    padding-left: 16px;
     position: relative;
     line-height: 1.7;
   }
@@ -229,18 +227,23 @@
     content: '—';
     position: absolute;
     left: 0;
-    color: #D1D6DB;
-    font-size: 11px;
-    top: 3px;
+    color: var(--line);
+    font-size: 12px;
+    top: 2px;
   }
-  .appeal-list { display: flex; flex-direction: column; gap: 20px; }
-  .appeal-item-title {
-    font-size: 13px;
+
+  .appeal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+  }
+  .appeal-title {
+    font-size: 14px;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
-  .appeal-item-desc {
+  .appeal-desc {
     font-size: 13px;
     color: var(--sub);
     line-height: 1.75;
@@ -249,7 +252,7 @@
 
   /* ── 자소서 탭 ── */
   .essay-item {
-    padding: 20px 0;
+    padding: 28px 0;
     border-bottom: 1px solid var(--line);
   }
   .essay-item:first-child { padding-top: 0; }
@@ -262,326 +265,277 @@
     background: rgba(49,130,246,0.08);
     border-radius: 6px;
     padding: 3px 9px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: 0.04em;
   }
   .essay-body {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--sub);
-    line-height: 1.85;
+    line-height: 1.9;
     word-break: keep-all;
+    max-width: 680px;
   }
 
-  @media (max-width: 540px) {
-    .wrap { padding: 24px 16px 60px; }
-    .card, .main-header { padding: 24px 20px; }
-    .exp-top { flex-direction: column; gap: 2px; }
-    .tab-btn { font-size: 12px; padding: 10px 4px; }
+  @media (max-width: 720px) {
+    .wrap { padding: 32px 20px 80px; }
+    .brand { font-size: 40px; }
+    .tab-btn { padding: 14px 16px; font-size: 14px; }
+    .block { padding: 24px 20px; }
+    .mentor-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 28px; }
+    .appeal-grid { grid-template-columns: 1fr; gap: 20px; }
+    .exp-head { flex-direction: column; gap: 2px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- 메인 헤더 -->
-  <div class="main-header">
-    <div class="brand">피리엇</div>
-    <div class="brand-sub">사업 · 서비스 기획자 멘토</div>
-    <div class="main-desc">
-      <p>프로젝트 중심의 사업개발, 서비스 출시, 서비스 기획 전반을 다뤄온 기획자입니다.</p>
-      <p>신차·중고차 시장 금융상품, 신용·주담대·전세 대출 서비스 경험을 보유하고 있으며, 현재는 취업·커리어를 고민하는 분들을 대상으로 멘토링을 진행하고 있습니다.</p>
-    </div>
+  <!-- 헤더 -->
+  <div class="header">
+    <h1 class="brand">피리엇<span>.</span></h1>
+    <div class="brand-role">사업 · 서비스 기획자 멘토</div>
+    <p class="brand-desc">프로젝트 중심의 사업개발, 서비스 출시, 서비스 기획 전반을 다뤄온 기획자입니다. 신차·중고차 시장 금융상품, 신용·주담대·전세 대출 서비스 경험을 보유하고 있으며, 현재는 취업·커리어를 고민하는 분들을 대상으로 멘토링을 진행하고 있습니다.</p>
   </div>
 
   <!-- 탭 네비게이션 -->
-  <div class="tab-nav">
+  <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('profile', this)">프로필</button>
     <button class="tab-btn" onclick="switchTab('resume', this)">이력서</button>
     <button class="tab-btn" onclick="switchTab('essay', this)">자기소개서</button>
-  </div>
+  </nav>
 
-  <!-- 탭 1: 프로필 -->
+  <!-- ─── 탭 1: 프로필 ─── -->
   <div id="tab-profile" class="tab-content active">
 
-    <div class="section">
-      <div class="section-label">경력</div>
+    <!-- 경력 -->
+    <div class="block">
+      <div class="block-title">경력</div>
 
-      <div class="card">
-        <div class="exp-top">
-          <div class="exp-company">NAVER FINANCIAL</div>
-          <div class="exp-period">2020.06 – 현재 · 6년</div>
+      <div class="exp-item">
+        <div class="exp-head">
+          <span class="exp-company">NAVER PAY</span>
+          <span class="exp-period">2020.06 – 현재 · 6년</span>
         </div>
         <div class="exp-role">사업/서비스 기획자</div>
         <div class="work-group">
-          <div class="work-group-title">부동산대출/자동차금융 사업 담당 ('24.01.~'25.07.)</div>
+          <div class="work-group-title">부동산대출/자동차금융 사업 담당 ('24.01–'25.07)</div>
           <ul class="work-list">
             <li>사업전략 및 목표 수립·관리, 서비스 기획 및 인력관리</li>
             <li>주택담보대출비교 서비스 취급액 MS 1위(약 50%)</li>
           </ul>
         </div>
         <div class="work-group">
-          <div class="work-group-title">주택담보대출 / 전월세 비교 서비스 기획 ('23.07.~)</div>
+          <div class="work-group-title">주택담보대출 / 전월세 비교 서비스 기획 ('23.07–)</div>
           <ul class="work-list">
             <li>사업 전략/정책 기획, 서비스 FLOW 설계 및 상세기획서 작성</li>
-            <li>24.01. 주담대 비교(갈아타기·신규대출) 출시</li>
-            <li>24.01. 전세대출 갈아타기 / 24.05. 전세대출 신규대출비교 출시</li>
+            <li>24.01 주담대 비교(갈아타기·신규대출) 출시 / 24.05 전세대출 신규대출비교 출시</li>
           </ul>
         </div>
         <div class="work-group">
-          <div class="work-group-title">자동차금융 신사업 기획 ('22.06.~)</div>
+          <div class="work-group-title">자동차금융 신사업 기획 ('22.06–)</div>
           <ul class="work-list">
-            <li>사업기획 및 제휴전략/제휴영업</li>
-            <li>네이버 신차금융 서비스 연계 마케팅 기획, 중고차론/리스 제휴 및 서비스 기획</li>
+            <li>사업기획 및 제휴전략/제휴영업, 신차금융 연계 마케팅, 중고차론/리스 제휴 기획</li>
           </ul>
         </div>
         <div class="work-group">
-          <div class="work-group-title">대출비교 서비스 기획 ('21.08.~)</div>
+          <div class="work-group-title">대출비교 서비스 기획 ('21.08–) / 스마트스토어 사업자 대출 ('20.06–'21.08)</div>
           <ul class="work-list">
             <li>서비스 전략/정책 기획, 제휴전략 및 협의, 마케팅 전략 수립</li>
-          </ul>
-        </div>
-        <div class="work-group">
-          <div class="work-group-title">스마트스토어 사업자 대출 ('20.06.~'21.08.)</div>
-          <ul class="work-list">
-            <li>미래에셋캐피탈 사업자 대출 프로세스 기획/마케팅</li>
-            <li>우리은행 스마트스토어 대출 상품 출시 PM</li>
+            <li>미래에셋캐피탈 사업자 대출 프로세스 기획 / 우리은행 스마트스토어 대출 상품 PM</li>
           </ul>
         </div>
       </div>
 
-      <div class="card">
-        <div class="exp-top">
-          <div class="exp-company">Hyundai Capital Services</div>
-          <div class="exp-period">2013.01 – 2020.06 · 7년 6개월</div>
+      <div class="exp-item">
+        <div class="exp-head">
+          <span class="exp-company">Hyundai Capital Services</span>
+          <span class="exp-period">2013.01 – 2020.06 · 7년 6개월</span>
         </div>
         <div class="exp-role">상품/서비스 기획자</div>
         <div class="work-group">
-          <div class="work-group-title">자동차 시세 서비스 기획/운영 총괄 (2019.11~2020.06)</div>
+          <div class="work-group-title">자동차 시세 서비스 기획/운영 총괄 (2019.11–2020.06)</div>
           <ul class="work-list">
-            <li>중고차 빅데이터 관리 및 시세 알고리즘 운영</li>
-            <li>중고차 적정가격 안내 서비스 CHECK 최초 기획/개발</li>
+            <li>중고차 빅데이터 관리 및 시세 알고리즘 운영 / 중고차 적정가격 안내 서비스 CHECK 최초 기획·개발</li>
           </ul>
         </div>
         <div class="work-group">
-          <div class="work-group-title">자동차 앱 기획/운영 총괄 '플카' (2019.03~)</div>
+          <div class="work-group-title">자동차 앱 '플카' 기획/운영 (2019.03–) / 회원 DB 마케팅 (2018.01–2019.03)</div>
           <ul class="work-list">
-            <li>현대캐피탈 자동차 구매 솔루션 앱 서비스 기획 및 인력 관리</li>
+            <li>현대캐피탈 자동차 구매 솔루션 앱 기획 및 인력 관리</li>
+            <li>400만 회원 DB 분석 통한 마케팅 전략 도출 / LMS·TM·Web/App 채널 콘텐츠 전략</li>
           </ul>
         </div>
         <div class="work-group">
-          <div class="work-group-title">회원 DB 마케팅 (2018.01~2019.03)</div>
-          <ul class="work-list">
-            <li>400만 회원 DB 분석 통한 마케팅 전략 도출</li>
-            <li>LMS, TM, Web/App 채널 콘텐츠 전략</li>
-          </ul>
-        </div>
-        <div class="work-group">
-          <div class="work-group-title">Digital Camp 파견 — 샌프란시스코 (2017.07~08)</div>
+          <div class="work-group-title">Digital Camp 파견 — 샌프란시스코 (2017.07–08) / 자동차금융 상품기획/마케팅 (2013.03–2015.12)</div>
           <ul class="work-list">
             <li>실리콘밸리 자동차 구매·금융·카셰어링 업체 미팅/시장조사/POC 검토</li>
-          </ul>
-        </div>
-        <div class="work-group">
-          <div class="work-group-title">자동차금융 상품기획/마케팅 (2013.03~2015.12)</div>
-          <ul class="work-list">
-            <li>현대/기아차 공동 자동차 금융(할부) 상품 개발(잔가보장형)</li>
-            <li>신상품 브랜드 체계 구축 및 ATL/BTL 통합 커뮤니케이션 전략</li>
+            <li>현대/기아차 공동 자동차 금융(할부) 상품 개발(잔가보장형) / ATL·BTL 통합 커뮤니케이션 전략</li>
           </ul>
         </div>
       </div>
 
-      <div class="card">
-        <div class="exp-top">
-          <div class="exp-company">현대카드·현대캐피탈·현대커머셜</div>
-          <div class="exp-period">2012.06 – 2012.08 · 인턴</div>
+      <div class="exp-item">
+        <div class="exp-head">
+          <span class="exp-company">현대카드·현대캐피탈·현대커머셜</span>
+          <span class="exp-period">2012.06 – 2012.08 · 인턴</span>
         </div>
         <div class="exp-role">기업금융기획팀 인턴</div>
         <div class="exp-simple">기업금융 투자를 위한 시스템반도체 Fabless 중소기업 시장 분석</div>
       </div>
 
-      <div class="card">
-        <div class="exp-top">
-          <div class="exp-company">GE Korea</div>
-          <div class="exp-period">2011.07 – 2011.12 · 6개월</div>
+      <div class="exp-item">
+        <div class="exp-head">
+          <span class="exp-company">GE Korea</span>
+          <span class="exp-period">2011.07 – 2011.12 · 6개월</span>
         </div>
         <div class="exp-role">PR Intern</div>
         <div class="exp-simple">사내 뉴스레터 기획/취재/콘텐츠 개발 · 신규 블로그 런칭 프로젝트 담당</div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-label">멘토링 경험</div>
-      <div class="card">
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">채용 면접 최종 의사결정</div>
-            <div class="award-org">금융사 계약직 채용 — 서류·면접 4명 최종 합격 결정</div>
-          </div>
+    <!-- 멘토링 경험 -->
+    <div class="block">
+      <div class="block-title">멘토링 경험</div>
+      <div class="mentor-grid">
+        <div class="mentor-item">
+          <div class="mentor-item-title">채용 면접 최종 의사결정</div>
+          <div class="mentor-item-desc">금융사 계약직 채용 — 서류·면접 4명 합격 결정</div>
         </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">플랫폼 기획자 채용 면접관</div>
-            <div class="award-org">서류심사 7명 · 면접 참여 4명 · 최종 채용 3명</div>
-          </div>
+        <div class="mentor-item">
+          <div class="mentor-item-title">플랫폼 기획자 채용 면접관</div>
+          <div class="mentor-item-desc">서류심사 7명 · 면접 4명 참여 · 최종 채용 3명</div>
         </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">사내 신입사원 교육 멘토</div>
-            <div class="award-org">신규 입사자 대상 온보딩 멘토링 진행</div>
-          </div>
+        <div class="mentor-item">
+          <div class="mentor-item-title">사내 신입사원 교육 멘토</div>
+          <div class="mentor-item-desc">신규 입사자 대상 온보딩 멘토링 진행</div>
         </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">팀원 커리어 코칭 · 취업 멘토링</div>
-            <div class="award-org">자소서 · 포트폴리오 작성 지도 및 취업 전략 멘토링</div>
-          </div>
+        <div class="mentor-item">
+          <div class="mentor-item-title">팀원 커리어 코칭 · 취업 멘토링</div>
+          <div class="mentor-item-desc">자소서·포트폴리오 작성 지도 및 취업 전략 멘토링</div>
         </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">영화과 대학 입시 과외</div>
-            <div class="award-org">다수 진행 — 시나리오 · 포트폴리오 · 면접 준비</div>
-          </div>
+        <div class="mentor-item">
+          <div class="mentor-item-title">영화과 대학 입시 과외</div>
+          <div class="mentor-item-desc">시나리오·포트폴리오·면접 준비 다수 진행</div>
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-label">학력</div>
-      <div class="card">
-        <div class="edu-school">연세대학교</div>
-        <div class="edu-info">신문방송학 학사 · 2005 – 2013</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-label">수상</div>
-      <div class="card">
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">GE URP 3rd Internship Program — Best URP</div>
+    <!-- 학력 + 수상 -->
+    <div class="block">
+      <div class="two-col">
+        <div>
+          <div class="block-subtitle">학력</div>
+          <div class="edu-school">연세대학교</div>
+          <div class="edu-info">신문방송학 학사 · 2005 – 2013</div>
+        </div>
+        <div>
+          <div class="block-subtitle">수상</div>
+          <div class="award-item">
+            <div class="award-name">GE URP — Best URP</div>
             <div class="award-org">GE Korea · 2011.12</div>
           </div>
-        </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">GE Korea Internship Program — 3rd Best Intern</div>
+          <div class="award-item">
+            <div class="award-name">GE Internship — 3rd Best Intern</div>
             <div class="award-org">GE Korea · 2011.09</div>
           </div>
-        </div>
-        <div class="award-row">
-          <div class="award-dot"></div>
-          <div>
-            <div class="award-name">GE Korea URP — Best Communicator (Elevator Speech Winner)</div>
+          <div class="award-item">
+            <div class="award-name">GE URP — Best Communicator</div>
             <div class="award-org">GE Korea · 2011.09</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-label">보유 기술</div>
-      <div class="card">
-        <div class="skill-wrap">
-          <span class="skill-tag">사업/서비스 기획</span>
-          <span class="skill-tag">프로젝트 관리</span>
-          <span class="skill-tag">신사업 기획</span>
-          <span class="skill-tag">제휴전략</span>
-          <span class="skill-tag">마케팅 전략</span>
-          <span class="skill-tag">금융 서비스</span>
-          <span class="skill-tag">자동차 금융</span>
-          <span class="skill-tag">Figma</span>
-        </div>
+    <!-- 보유기술 -->
+    <div class="block">
+      <div class="block-title">보유 기술</div>
+      <div class="skill-wrap">
+        <span class="skill-tag">사업/서비스 기획</span>
+        <span class="skill-tag">프로젝트 관리</span>
+        <span class="skill-tag">신사업 기획</span>
+        <span class="skill-tag">제휴전략</span>
+        <span class="skill-tag">마케팅 전략</span>
+        <span class="skill-tag">금융 서비스</span>
+        <span class="skill-tag">자동차 금융</span>
+        <span class="skill-tag">Figma</span>
       </div>
     </div>
 
   </div><!-- /tab-profile -->
 
-  <!-- 탭 2: 이력서 -->
+  <!-- ─── 탭 2: 이력서 ─── -->
   <div id="tab-resume" class="tab-content">
 
-    <div class="section">
-      <div class="section-label">성격</div>
-      <div class="card">
-        <ul class="trait-list">
-          <li>일을 대충하는 것을 싫어하고, "원래 그래"라는 말을 가장 싫어합니다.</li>
-          <li>일을 왜 하는지 모르면 답답해하고 납득할 때까지 알아내고자 합니다.</li>
-          <li>현실적인 제약이 있을 때마다, "그래서 제일 중요한 게 뭐지?"란 생각으로 업무를 진행합니다.</li>
-          <li>다양한 상황, 다양한 상대의 입장에 맞춰 다양한 방식과 모습으로 커뮤니케이션합니다.</li>
-          <li>회사의 일에 사적인 관계나 감정의 영향을 0%로 유지하고자 합니다.</li>
-        </ul>
-      </div>
+    <div class="block">
+      <div class="block-title">성격</div>
+      <ul class="trait-list">
+        <li>일을 대충하는 것을 싫어하고, "원래 그래"라는 말을 가장 싫어합니다.</li>
+        <li>일을 왜 하는지 모르면 답답해하고 납득할 때까지 알아내고자 합니다.</li>
+        <li>현실적인 제약이 있을 때마다, "그래서 제일 중요한 게 뭐지?"란 생각으로 업무를 진행합니다.</li>
+        <li>다양한 상황, 다양한 상대의 입장에 맞춰 다양한 방식과 모습으로 커뮤니케이션합니다.</li>
+        <li>회사의 일에 사적인 관계나 감정의 영향을 0%로 유지하고자 합니다.</li>
+      </ul>
     </div>
 
-    <div class="section">
-      <div class="section-label">강점</div>
-      <div class="card">
-        <div class="appeal-list">
-          <div>
-            <div class="appeal-item-title">시장 · 금융 · 온라인에 대한 지식</div>
-            <div class="appeal-item-desc">신차할부로 시작해 다양한 서비스 기획을 거쳐 온라인 금융 및 시세 서비스까지 맡아왔습니다. 특히 기존 오프라인 중심 시장을 벗어난 온라인 사업 전략에 대한 경험 및 고민과 아이디어가 많습니다.</div>
-          </div>
-          <div>
-            <div class="appeal-item-title">새로운 일에 대한 익숙함</div>
-            <div class="appeal-item-desc">사원 2년차 때부터 프로젝트를 맡아 상품개발, 마케팅, 제휴, 서비스 기획 등의 업무를 진행했습니다. 남들이 하기 싫어하는 일도 기꺼이 먼저 나서서 맡아왔습니다. 기존에 하던 것을 잘하는 것보단, Zero Base에서 새로운 것을 만들어 내기 위해 고민하는 것을 즐깁니다.</div>
-          </div>
-          <div>
-            <div class="appeal-item-title">디테일에 대한 감각</div>
-            <div class="appeal-item-desc">기획과 관리만이 아닌 디테일한 영역까지 고민합니다. 개인적으로 디자인이나 영상, 글쓰기 등에 취미와 관심이 있어 카피라이팅이나 디자인을 직접 맡아 한 적도 많습니다. 또한 개발업무를 직관적으로 이해하기 위해 개발자와 많은 대화를 합니다.</div>
-          </div>
-          <div>
-            <div class="appeal-item-title">넓은 시야</div>
-            <div class="appeal-item-desc">사원 때 별명이 부장이었고, 지금은 농담처럼 '니가 실장해라'라는 얘기를 듣습니다. 권한 여부를 떠나 '내가 실장이라면', '내가 본부장이라면'이라는 생각으로 사업을 고민합니다.</div>
-          </div>
-          <div>
-            <div class="appeal-item-title">잘 하고 있다는 자부심</div>
-            <div class="appeal-item-desc">어떤 일을 맡더라도 남들보다는 내가 더 잘할 수 있다는 자부심을 잃지 않으려 합니다. 그러기 위해선 객관적인 성과가 뒷받침되어야 합니다. 3년차부터 업적에 대해 상위평가를 받았고, 역량도 상위평가를 유지해 대리와 과장 직급을 각각 1년 특진했습니다.</div>
-          </div>
+    <div class="block">
+      <div class="block-title">강점</div>
+      <div class="appeal-grid">
+        <div>
+          <div class="appeal-title">시장 · 금융 · 온라인에 대한 지식</div>
+          <div class="appeal-desc">신차할부로 시작해 다양한 서비스 기획을 거쳐 온라인 금융 및 시세 서비스까지 맡아왔습니다. 오프라인 중심 시장을 벗어난 온라인 사업 전략에 대한 경험과 고민이 깊습니다.</div>
+        </div>
+        <div>
+          <div class="appeal-title">새로운 일에 대한 익숙함</div>
+          <div class="appeal-desc">사원 2년차 때부터 프로젝트를 맡아 상품개발, 마케팅, 제휴, 서비스 기획 등을 진행했습니다. Zero Base에서 새로운 것을 만들어 내기 위해 고민하는 것을 즐깁니다.</div>
+        </div>
+        <div>
+          <div class="appeal-title">디테일에 대한 감각</div>
+          <div class="appeal-desc">기획과 관리만이 아닌 디테일한 영역까지 고민합니다. 카피라이팅이나 디자인을 직접 맡아 한 적도 많으며, 개발자와 많은 대화를 통해 개발업무를 직관적으로 이해하려 합니다.</div>
+        </div>
+        <div>
+          <div class="appeal-title">넓은 시야</div>
+          <div class="appeal-desc">사원 때 별명이 부장이었고, 지금은 농담처럼 '니가 실장해라'라는 얘기를 듣습니다. '내가 실장이라면', '내가 본부장이라면'이라는 생각으로 사업을 고민합니다.</div>
+        </div>
+        <div>
+          <div class="appeal-title">잘 하고 있다는 자부심</div>
+          <div class="appeal-desc">어떤 일을 맡더라도 남들보다 잘할 수 있다는 자부심을 잃지 않으려 합니다. 3년차부터 업적 상위평가를 받았고, 대리·과장 직급을 각각 1년 특진했습니다.</div>
         </div>
       </div>
     </div>
 
   </div><!-- /tab-resume -->
 
-  <!-- 탭 3: 자기소개서 -->
+  <!-- ─── 탭 3: 자기소개서 ─── -->
   <div id="tab-essay" class="tab-content">
 
-    <div class="section">
-      <div class="section-label">현대카드 입사 지원 자기소개서</div>
-      <div class="card">
+    <div class="block">
+      <div class="block-title">현대카드 입사 지원 자기소개서</div>
 
-        <div class="essay-item">
-          <div class="essay-tag">문제 해결</div>
-          <div class="essay-body">GE에서 온라인 미디어를 담당했습니다. 웹사이트는 GE 내 웹 프로그램으로 구동되었고 이에 대한 실무지식은 제가 유일했습니다. 문제가 있을 시, 미국 본사 IT팀의 도움을 받았습니다.<br><br>한창 웹사이트 리뉴얼 중, 미국 본사 담당자가 7일간 휴가를 간 상황에서 링크와 관련된 알 수 없는 에러가 났습니다. 취할 수 있던 방안은 본사 내 타지역 담당자에게 긴급 연락을 보내고 기다리는 것, 한국 타사업부 IT팀에게 문의를 요청하는 것, 그리고 스스로 문제를 파악하기 위해 노력하는 것이었습니다.<br><br>이미 업무시간은 지났고 웹사이트가 에러난 상황을 기다릴 수가 없어 사무실에 남아 5시간 넘게 인터넷 검색 등으로 급하게 HTML 등을 공부하였습니다. 계속된 시행착오를 거치다 에러나는 이유를 판단하고 수정한 후 해결했고, 매니저에게 보고하였습니다.<br><br>이후 재발 시를 대비해 본사 팀에게 상황을 상세히 보고하고 웹 프로그램 사용 시 일어날 수 있는 대처법을 문의했습니다. 이를 토대로 웹사이트 위기 대처 매뉴얼을 작성하였습니다.</div>
-        </div>
-
-        <div class="essay-item">
-          <div class="essay-tag">열정</div>
-          <div class="essay-body">GE 인턴 시, 인턴들끼리 진행된 DVD 프로젝트의 리더를 맡았습니다. 3팀의 촬영팀장과 함께 스토리를 짜고 표지제작 및 영상편집을 맡았습니다.<br><br>문제는 이전까지의 영상들이 슬라이드쇼로 된 단순한 영상이어서 팀원들은 이전까지만큼만 하려는 성향이 있었습니다. 하지만 저는 전이 어땠든 간에 우리가 할 수 있는 최대치로 최대한의 결과를 내어 기대를 넘는 성과를 내고 싶었습니다. 더욱이 다음 기수의 인턴들이 우리 영상을 보고 대충이 아니라 열심히 해야 한다고 느낄 기준을 제시하고 싶었습니다.<br><br>팀원들이 이 일이 중요하면서 또 재밌다고 느껴야 했습니다. 그래서 저부터 모든 일에 즐겁게 임하고, 각 팀원을 면대면으로 만나 재밌는 일을 함께 하자고 설득했습니다. 차차 소수의 열성적인 팀원이 생겼고, 완벽한 마무리를 위해 사서고생한다는 말을 들으며 주말 3일 밤을 새며 편집을 했습니다.<br><br>졸업식 때 상영된 영상은 기립박수를 받았습니다. 100장 제작된 DVD는 없어서 못 들고 갔으며 HR리더로부터 "다음 기수 어떡하냐"는 농담을 듣는 것으로 목표를 달성했습니다.</div>
-        </div>
-
-        <div class="essay-item">
-          <div class="essay-tag">공동 목표</div>
-          <div class="essay-body">학기 수업 중 삼성전자와 함께 진행한 프로젝트로 마케팅 커뮤니케이션 전략을 제시해 발표하는 수업이었습니다. 저는 다섯 명 팀원의 리더로 분담된 역할 진행 과정을 확인하면서 최종 발표자료 제작과 전체 흐름을 짜는 역할이었습니다.<br><br>문제는 저를 포함해 팀원 다섯 명 중 4명이 4학년이었습니다. 그리고 그들은 학점을 딸 정도만 하자는 분위기로 처음부터 동기부여가 되지 않았습니다. 특히 두 명은 친한 친구였기에 이미 '대충하자'고 저에게 몇 번이나 말했던 수업이었습니다. 하지만 저는 어차피 할 거면 대충하는 게 싫었기에 그들을 설득하고자 했습니다.<br><br>'나는 최대한 잘 하고 싶고 대충할 수 없다. 너희가 열심히 하기 힘들다면 머리만이라도 써라. 대충의 아이디어만이라도 내어달라'는 말로 회유하기 시작했습니다. 일단 아이디어만 내기 시작하던 그들은 점점 아이디어가 구체화되고 전체 컨셉 속에서 진행되는 것을 보고는 열정이 생기기 시작했습니다.<br><br>그들이 중간에 포기하지 않게 지속적으로 아이디어를 구체화시키고 결과물로 만들어 보여주고 칭찬으로 사기를 높이기 위해 노력했습니다. 그 결과, 학교 내 1등, 학교 1등끼리 모여 펼친 경쟁 PT 1등으로 최종 우승을 차지하게 되었습니다.</div>
-        </div>
-
-        <div class="essay-item">
-          <div class="essay-tag">변화 적응</div>
-          <div class="essay-body">저는 온라인 미디어(SNS 등)를 연구하는 학회활동을 했는데, 3년을 맞이한 학회는 제가 6개월 활동한 후인 겨울방학 때 새롭게 조직개편을 하며 저는 바로 후임을 맞이해 연구를 이끌어야 하는 선임연구원이 되었습니다. 어려운 점은 보통 1년의 활동이 선행되어야 했는데 저 역시 컨퍼런스를 기획한 경험없이 새롭게 후임을 이끌어야 하는 것이었습니다.<br><br>이 상황에 적응하기 위해 두 가지 목표로 임했습니다. 먼저 전문지식을 누구보다 먼저 쌓자. 둘째는 내 상황을 솔직하게 보여주고 노력하자였습니다. 저는 연구를 리드하기 위해 페이스북 관련 논문 300여 편에 대해 간략하게 파악을 하고 100편이 넘는 기사로 트렌드 및 전문지식을 쌓았습니다. 그리고 저 역시 처음이라는 것을 솔직하게 말하고 이해를 바란다고 한 명씩 만나 이야기를 나눴고, 부담이나 두려움을 느끼지 않게 제가 누구보다 열심히 노력하고 있음을 말했습니다.<br><br>또한 저의 동기들에게도 좀 더 선임으로의 모습을 보이자며 논문과 기사, 책 등을 공유했고, 후임들과 일대일로 나눈 이야기들도 공유했습니다. 이에 사람들은 저와 동기들을 신뢰하며 저희가 성실히 하는 만큼 따라와주었고 컨퍼런스를 무사히 마칠 수 있었습니다.</div>
-        </div>
-
+      <div class="essay-item">
+        <div class="essay-tag">문제 해결</div>
+        <div class="essay-body">GE에서 온라인 미디어를 담당했습니다. 웹사이트는 GE 내 웹 프로그램으로 구동되었고 이에 대한 실무지식은 제가 유일했습니다. 문제가 있을 시, 미국 본사 IT팀의 도움을 받았습니다.<br><br>한창 웹사이트 리뉴얼 중, 미국 본사 담당자가 7일간 휴가를 간 상황에서 링크와 관련된 알 수 없는 에러가 났습니다. 취할 수 있던 방안은 본사 내 타지역 담당자에게 긴급 연락을 보내고 기다리는 것, 한국 타사업부 IT팀에게 문의를 요청하는 것, 그리고 스스로 문제를 파악하기 위해 노력하는 것이었습니다.<br><br>이미 업무시간은 지났고 웹사이트가 에러난 상황을 기다릴 수가 없어 사무실에 남아 5시간 넘게 인터넷 검색 등으로 급하게 HTML 등을 공부하였습니다. 계속된 시행착오를 거치다 에러나는 이유를 판단하고 수정한 후 해결했고, 매니저에게 보고하였습니다.<br><br>이후 재발 시를 대비해 본사 팀에게 상황을 상세히 보고하고 웹 프로그램 사용 시 일어날 수 있는 대처법을 문의했습니다. 이를 토대로 웹사이트 위기 대처 매뉴얼을 작성하였습니다.</div>
       </div>
-    </div>
 
+      <div class="essay-item">
+        <div class="essay-tag">열정</div>
+        <div class="essay-body">GE 인턴 시, 인턴들끼리 진행된 DVD 프로젝트의 리더를 맡았습니다. 3팀의 촬영팀장과 함께 스토리를 짜고 표지제작 및 영상편집을 맡았습니다.<br><br>문제는 이전까지의 영상들이 슬라이드쇼로 된 단순한 영상이어서 팀원들은 이전까지만큼만 하려는 성향이 있었습니다. 하지만 저는 전이 어땠든 간에 우리가 할 수 있는 최대치로 최대한의 결과를 내어 기대를 넘는 성과를 내고 싶었습니다. 더욱이 다음 기수의 인턴들이 우리 영상을 보고 대충이 아니라 열심히 해야 한다고 느낄 기준을 제시하고 싶었습니다.<br><br>팀원들이 이 일이 중요하면서 또 재밌다고 느껴야 했습니다. 그래서 저부터 모든 일에 즐겁게 임하고, 각 팀원을 면대면으로 만나 재밌는 일을 함께 하자고 설득했습니다. 차차 소수의 열성적인 팀원이 생겼고, 완벽한 마무리를 위해 사서고생한다는 말을 들으며 주말 3일 밤을 새며 편집을 했습니다.<br><br>졸업식 때 상영된 영상은 기립박수를 받았습니다. 100장 제작된 DVD는 없어서 못 들고 갔으며 HR리더로부터 "다음 기수 어떡하냐"는 농담을 듣는 것으로 목표를 달성했습니다.</div>
+      </div>
+
+      <div class="essay-item">
+        <div class="essay-tag">공동 목표</div>
+        <div class="essay-body">학기 수업 중 삼성전자와 함께 진행한 프로젝트로 마케팅 커뮤니케이션 전략을 제시해 발표하는 수업이었습니다. 저는 다섯 명 팀원의 리더로 분담된 역할 진행 과정을 확인하면서 최종 발표자료 제작과 전체 흐름을 짜는 역할이었습니다.<br><br>문제는 저를 포함해 팀원 다섯 명 중 4명이 4학년이었습니다. 그리고 그들은 학점을 딸 정도만 하자는 분위기로 처음부터 동기부여가 되지 않았습니다. 특히 두 명은 친한 친구였기에 이미 '대충하자'고 저에게 몇 번이나 말했던 수업이었습니다. 하지만 저는 어차피 할 거면 대충하는 게 싫었기에 그들을 설득하고자 했습니다.<br><br>'나는 최대한 잘 하고 싶고 대충할 수 없다. 너희가 열심히 하기 힘들다면 머리만이라도 써라. 대충의 아이디어만이라도 내어달라'는 말로 회유하기 시작했습니다. 일단 아이디어만 내기 시작하던 그들은 점점 아이디어가 구체화되고 전체 컨셉 속에서 진행되는 것을 보고는 열정이 생기기 시작했습니다.<br><br>그들이 중간에 포기하지 않게 지속적으로 아이디어를 구체화시키고 결과물로 만들어 보여주고 칭찬으로 사기를 높이기 위해 노력했습니다. 그 결과, 학교 내 1등, 학교 1등끼리 모여 펼친 경쟁 PT 1등으로 최종 우승을 차지하게 되었습니다.</div>
+      </div>
+
+      <div class="essay-item">
+        <div class="essay-tag">변화 적응</div>
+        <div class="essay-body">저는 온라인 미디어(SNS 등)를 연구하는 학회활동을 했는데, 3년을 맞이한 학회는 제가 6개월 활동한 후인 겨울방학 때 새롭게 조직개편을 하며 저는 바로 후임을 맞이해 연구를 이끌어야 하는 선임연구원이 되었습니다. 어려운 점은 보통 1년의 활동이 선행되어야 했는데 저 역시 컨퍼런스를 기획한 경험없이 새롭게 후임을 이끌어야 하는 것이었습니다.<br><br>이 상황에 적응하기 위해 두 가지 목표로 임했습니다. 먼저 전문지식을 누구보다 먼저 쌓자. 둘째는 내 상황을 솔직하게 보여주고 노력하자였습니다. 저는 연구를 리드하기 위해 페이스북 관련 논문 300여 편에 대해 간략하게 파악을 하고 100편이 넘는 기사로 트렌드 및 전문지식을 쌓았습니다. 그리고 저 역시 처음이라는 것을 솔직하게 말하고 이해를 바란다고 한 명씩 만나 이야기를 나눴고, 부담이나 두려움을 느끼지 않게 제가 누구보다 열심히 노력하고 있음을 말했습니다.<br><br>또한 저의 동기들에게도 좀 더 선임으로의 모습을 보이자며 논문과 기사, 책 등을 공유했고, 후임들과 일대일로 나눈 이야기들도 공유했습니다. 이에 사람들은 저와 동기들을 신뢰하며 저희가 성실히 하는 만큼 따라와주었고 컨퍼런스를 무사히 마칠 수 있었습니다.</div>
+      </div>
+
+    </div>
   </div><!-- /tab-essay -->
 
-</div><!-- /wrap -->
+</div>
 
 <script>
   function switchTab(name, btn) {
